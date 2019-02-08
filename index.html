@@ -10,7 +10,37 @@
     <h1>check the console</h1>
 
     <script>
-      console.log('works');
+      setTimeout(() => {
+        console.log('3 seconds past');
+      }, 3000);
+
+      var rps = ['r', 'p', 's'];
+      var userChoice = prompt('Choose between R, P,S').toLowerCase();
+      var pcChoice = rps[Math.floor(Math.random() * 3)];
+
+      // MAKE SURE USER ACTUALLY PICKS R/P/S
+      if (userChoice !== 'r' && userChoice !== 'p' && userChoice !== 's') {
+        alert('Your Choice is not valid, choose R, P, S');
+        window.location.reload();
+      } else {
+        // LET'S FIND OUT WHO WON
+        if (
+          (userChoice === 'r' && pcChoice === 's') ||
+          (userChoice === 's' && pcChoice === 'p') ||
+          (userChoice === 'p' && pcChoice === 'r')
+        ) {
+          alert("You're a WEEEEENER");
+        } else if (
+          (userChoice === 's' && pcChoice === 'r') ||
+          (userChoice === 'p' && pcChoice === 's') ||
+          (userChoice === 'r' && pcChoice === 'p')
+        ) {
+          alert('YOU A LOOOOOOSER');
+        } else {
+          // TIE GAME
+          alert('NO ONE IS A WEEENER OR LOOOSER');
+        }
+      }
     </script>
   </body>
 </html>
